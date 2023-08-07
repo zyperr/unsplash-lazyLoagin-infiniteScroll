@@ -1,4 +1,4 @@
-import { registerImage } from "./lazy";
+import { registerImage } from "./lazy-loading.js";
 
 const ACCESS_KEY = "FqBaVbq4WBKXi1HoQyvZ6ncEbEZ4dqx8h1I_MPQKdos";
 const endpoint = `https://api.unsplash.com/photos/?client_id=${ACCESS_KEY}`;
