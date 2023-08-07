@@ -9,7 +9,6 @@ const isLazy = 'loading' in HTMLImageElement.prototype // Checking if browser su
 let page = 1;
 const classForIcons = [
   "fa-regular fa-heart",
-  "fa-brands fa-instagram",
   "fa-solid fa-file-arrow-down",
 ];
 
@@ -48,13 +47,11 @@ const cardImage = (sources) => {
     const li = document.createElement("li");
     const liLikes = document.createElement("li");
     const A_Download = document.createElement("a");
-    const iIntagram = document.createElement("i");
     const iLikes = document.createElement("i");
     const iDownload = document.createElement("i");
     //adding class for i elements (font aweson)
-    iIntagram.setAttribute("class", classForIcons[1]);
     iLikes.setAttribute("class", classForIcons[0]);
-    iDownload.setAttribute("class", classForIcons[2]);
+    iDownload.setAttribute("class", classForIcons[1]);
     //skeleton class 
     skeleton.setAttribute("class","skeleton-grid")
     //download button
@@ -63,13 +60,12 @@ const cardImage = (sources) => {
     A_Download.setAttribute("target", "_blank");
     A_Download.insertAdjacentElement("afterbegin", iDownload);
     //icons likes and instagram
-    li.insertAdjacentElement("afterbegin", iIntagram);
     liLikes.insertAdjacentElement("afterbegin", iLikes);
     li.insertAdjacentHTML(
       "beforeend",
       `<a href="https://www.instagram.com/${
         item.instagram ?? ""
-      }/?theme=dark" target="_blank">${item.instagram ?? "not found"}</a>`
+      }/?theme=dark" target="_blank"><i class="fa-brands fa-instagram"></i>${item.instagram ?? "not found"}</a>`
     );
     liLikes.insertAdjacentText("beforeend", item.likes ?? 0);
     //append instagram likes and download button to ul
