@@ -106,15 +106,15 @@ const cardImage = (sources) => {
 //llamamos una primera vez a fetchData para mostrar el contenido de la primera pagina
 
 //observamos el footer para cargar mas elementos y sumamos a la variable page 1 esto cambia a la siguiente pagina de la api
-// const observer = new IntersectionObserver(entries => {
-//   entries.forEach(entry => {
-//     if (entry.isIntersecting) {
-//       if(page < 1 || page > 20) return
-//       page++
-//       fetchData()
-//     }
-//   });
-// });
-// observer.observe(footer);
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      if(page < 1 || page > 20) return
+      page++
+      fetchData()
+    }
+  });
+});
+observer.observe(footer);
 
 fetchData();
