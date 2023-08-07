@@ -5,12 +5,28 @@
   font-family: 'Poppins', sans-serif;
 
 }
+ul{
+  list-style: none;
+}
 a{
   text-decoration: none;
   color: #e1b4fe;
 }
+a:hover{
+  color: #aa32eb;
+
+}
+a:visited{
+  color: #bd54f8;
+
+}
 body{
   background-color: #242027;
+}
+footer{
+  display: flex;
+  justify-content: center;
+  margin: .625rem;
 }
 .container{
   display: flex;
@@ -120,12 +136,7 @@ article:has(:hover) > .walpapper {
 .banner ul a i:hover {
   color: #aa32eb;
 }
-.banner ul li a:hover {
-  color: #aa32eb;
-}
-.banner ul li a:visited {
-  color: #bd54f8;
-}
+
 .--show-on-hover {
   transition: visibility, opacity 500ms ease-in;
 }
