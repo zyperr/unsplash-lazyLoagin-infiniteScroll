@@ -2,47 +2,43 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-
+  font-family: "Poppins", sans-serif;
 }
-ul{
+ul {
   list-style: none;
 }
-a{
+a {
   text-decoration: none;
   color: #e1b4fe;
 }
-a:hover{
+a:hover {
   color: #aa32eb;
-
 }
-a:visited{
+a:visited {
   color: #bd54f8;
-
 }
-body{
+body {
   background-color: #242027;
 }
-footer{
+footer {
   display: flex;
   justify-content: center;
-  margin: .625rem;
+  margin: 0.625rem;
 }
-.container{
+.container {
   display: flex;
   justify-content: center;
   flex-flow: column;
   align-items: center;
-  margin: .625rem;
-  gap: .3125rem;
+  margin: 0.625rem;
+  gap: 0.3125rem;
 }
-.container .title{
+.container .title {
   color: #aa32eb;
   font-size: 1.25rem;
   text-transform: uppercase;
-
 }
-.container .description{
+.container .description {
   color: #d7adee;
   font-size: 13px;
 }
@@ -69,6 +65,7 @@ footer{
   object-fit: cover;
   border-radius: 5px;
   transition: filter 200ms ease-in;
+  
 }
 
 i {
@@ -113,12 +110,12 @@ article:has(:hover) > .walpapper {
   visibility: hidden;
   opacity: 0;
 }
-.banner ul{
+.banner ul {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: .625rem;
+  gap: 0.625rem;
   color: white;
 }
 .banner ul li {
@@ -131,7 +128,6 @@ article:has(:hover) > .walpapper {
   overflow: hidden;
   white-space: nowrap;
   max-width: 120px;
-
 }
 .banner ul a i:hover {
   color: #aa32eb;
@@ -150,6 +146,7 @@ article:has(:hover) > .walpapper {
     max-width: 100px;
   }
 }
+
 @media (min-width: 800px) {
   .layout {
     grid-template-columns: 1fr 1fr 1fr;
@@ -167,9 +164,25 @@ article:has(:hover) > .walpapper {
     max-width: 100px;
   }
 }
+
 @media (max-width: 600px) {
   .layout {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
   }
 }
+/* skeleton element*/ 
+.layout  .skeleton-grid {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: #3F3F3F;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 2px;
+  background-image: url("./assets/loading.gif");
+  background-position: center;
+  background-blend-mode: multiply;
+  background-size: cover;
+} 

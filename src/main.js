@@ -29,7 +29,6 @@ async function fetchData() {
         altImg: data.alt_description,
       };
     });
-
     cardImage(sources);
   } catch (err) {
     console.error(`error: ${err}`);
@@ -40,10 +39,10 @@ const cardImage = (sources) => {
   const nodos = [];
   sources.map((item) => {
     const container = document.createElement("article");
+    const skeleton = document.createElement("div");
     const picture = document.createElement("picture");
     const profilePicture = document.createElement("img");
     const img = document.createElement("img");
-
     const banner = document.createElement("div");
     const ul = document.createElement("ul");
     const li = document.createElement("li");
@@ -56,7 +55,8 @@ const cardImage = (sources) => {
     iIntagram.setAttribute("class", classForIcons[1]);
     iLikes.setAttribute("class", classForIcons[0]);
     iDownload.setAttribute("class", classForIcons[2]);
-
+    //skeleton class 
+    skeleton.setAttribute("class","skeleton-grid")
     //download button
     A_Download.href = item.download;
     A_Download.setAttribute("download", "");
@@ -82,7 +82,6 @@ const cardImage = (sources) => {
       profilePicture.loading = 'lazy'
       img.src = item.walpapper;
       profilePicture.src = item.profile;
-
     }else{
       img.dataset.src = item.walpapper;
       profilePicture.dataset.src = item.profile;
@@ -93,15 +92,24 @@ const cardImage = (sources) => {
     banner.classList.add("banner");
     ul.setAttribute("class", "flex flex-row justify-center items-center gap-3");
     container.classList.add("grid-item")
+    //append
     picture.appendChild(profilePicture);
     banner.appendChild(ul);
-    container.append(picture, img, banner);
+    container.append(picture, img, banner,skeleton);
     //If a image is intersecting at viewport 
     !isLazy && registerImage(container);
+
 
     nodos.push(container);
     return app.append(...nodos);
   });
+  nodos.forEach(item => {
+    let imageLoaded = item.childNodes[1]
+    imageLoaded.addEventListener("load",() => {
+      let skeleton = item.lastElementChild; 
+      item.removeChild(skeleton)
+    })
+  })
 };
 //llamamos una primera vez a fetchData para mostrar el contenido de la primera pagina
 
